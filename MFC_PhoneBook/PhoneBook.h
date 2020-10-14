@@ -9,6 +9,7 @@ public:
     static const string FILE_NAME;
     static const string PHONE_MASK;
     static const string NOTE_DELIMETER;
+    static const string FORMAT_ARGUMENTS;
 
     static void flush(string name, string phone);
     static void findByName(string key, string* name, string* phone);
@@ -24,5 +25,5 @@ private:
     static string getNameFromNote(string note);
     static string getPhoneFromNote(string note);
 
-    static bool isRepeatRecord(string record);
+    static bool isRepeatRecord(string name, string phone);
 };

@@ -62,7 +62,7 @@ BEGIN
     PUSHBUTTON      "Добавить контакт",IDC_BUTTON1,43,56,112,14
     EDITTEXT        IDC_EDIT3,290,32,111,14,ES_AUTOHSCROLL
     LTEXT           "Ввод поисковых данных",IDC_STATIC,291,21,95,9
-    PUSHBUTTON      "Поиск",IDC_BUTTON2,327,85,69,14
+    PUSHBUTTON      "Поиск",IDC_BUTTON2,290,85,113,14
     CONTROL         "Поиск по Фамилии",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON,290,51,77,10
     CONTROL         "Поиск по Телефону",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,290,67,80,10
 END
