@@ -3,8 +3,8 @@
 #include <iostream>
 
 const string PhoneBook::FILE_NAME = "Phone_Book_DB.txt";
-const string PhoneBook::PHONE_MASK = "";
-const string PhoneBook::FORMAT_ARGUMENTS = "FORMAT:\n   NAME could has [a-z],[A-Z],[0-9],'_'\n  PHONE = +*-???-???-??-??";
+const string PhoneBook::PHONE_MASK = "+*-???-???-??-??";
+const string PhoneBook::FORMAT_ARGUMENTS = "FORMAT:\n  NAME could has [a-z],[A-Z],[0-9],'_'\n  PHONE = +*-???-???-??-??";
 const string PhoneBook::NOTE_DELIMETER = "|";
 
 void PhoneBook::flush(string name, string phone) throw(runtime_error, invalid_argument, exception) {
@@ -33,6 +33,10 @@ void PhoneBook::flush(string name, string phone) throw(runtime_error, invalid_ar
 }
 
 void PhoneBook::findByName(string name, string* varForName, string* varForPhone) throw(runtime_error, invalid_argument) {
+    if (!isNameCorrect(name)) {
+        throw invalid_argument("\nОшибка :: не корректная запись имени = " + name + '\n' + FORMAT_ARGUMENTS);
+    }
+    
     ifstream fin;
     fin.open(FILE_NAME);
     if (!fin.is_open()) {
@@ -58,6 +62,10 @@ void PhoneBook::findByName(string name, string* varForName, string* varForPhone)
 }
 
 void PhoneBook::findByPhone(string phone, string* varForName, string* varForPhone) throw(runtime_error, invalid_argument) {
+    if (!isPhoneCorrect(phone)) {
+        throw invalid_argument("\nОшибка :: не корректная запись телефона = " + phone + '\n' + FORMAT_ARGUMENTS);
+    }
+    
     ifstream fin;
     fin.open(FILE_NAME);
     if (!fin.is_open()) {
